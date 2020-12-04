@@ -1,1 +1,1 @@
-web: bundle exec python3 WebserverBackend.py
+web: python3 WebserverBackend.py
