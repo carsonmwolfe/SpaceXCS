@@ -1,1 +1,1 @@
-web: gunicorn WebserverBackend:app
+web: bundle exec python3 WebserverBackend.py
