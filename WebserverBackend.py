@@ -52,4 +52,4 @@ def countdown():
     ret_string="{0}, {1}, {2}, and {3}".format(days,hours,minutes,seconds)
     return ret_string
 
-app.run(host="0.0.0.0",threaded=True,port=80)
+app.run(threaded=True,port=80)
