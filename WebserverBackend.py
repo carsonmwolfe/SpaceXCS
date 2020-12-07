@@ -3,7 +3,6 @@
 import flask
 import datetime
 import requests
-import os
 import json
 
 app=flask.Flask(__name__)
@@ -53,4 +52,28 @@ def countdown():
     ret_string="{0}, {1}, {2}, and {3}".format(days,hours,minutes,seconds)
     return ret_string
 
-app.run(host = '0.0.0.0' ,threaded=True,port=int(os.environ.get('PORT', 5000)))
+@app.route('/launchdetails')
+def launchdetails():
+
+
+    Latest = requests.get("https://api.spacexdata.com/v3/launches/latest").text
+    json_Latest=json.loads(Latest)
+
+    Upcoming = requests.get("https://api.spacexdata.com/v3/launches/upcoming").text
+    json_Upcoming=json.loads(Upcoming)
+
+    details_string = "Mission Name:" + str(json_Upcoming[0]["mission_name"] + "\n" + "Rocket Model:" + str(json_Upcoming[0]["rocket"]["rocket_name"]))
+    return details_string
+
+
+
+
+
+@app.route('/launchinformation')
+def launchinformation():
+
+@app.route('/upcominglaunches')
+def upcominglaunches():
+
+
+app.run(threaded=True,port=int(os.environ.get('PORT', 5000)))
