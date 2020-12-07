@@ -56,14 +56,15 @@ def countdown():
 @app.route('/launchdetails')
 def launchdetails():
 
-
     Latest = requests.get("https://api.spacexdata.com/v3/launches/latest").text
     json_Latest=json.loads(Latest)
 
     Upcoming = requests.get("https://api.spacexdata.com/v3/launches/upcoming").text
     json_Upcoming=json.loads(Upcoming)
 
-    details_string = "Mission Name:" + str(json_Latest)[0]["mission_name"] + "\n" + "Rocket Model:" + str(json_Latest[0]["rocket"]["rocket_name"])
+    print(json_Latest["rocket"]["rocket_name"])
+
+    details_string = "Mission Name: " + str(json_Latest["mission_name"]) + "\n" + " Rocket Model: " + str(json_Latest["rocket"]["rocket_name"])
     return details_string
 
 @app.route('/upcominglaunches')
@@ -72,7 +73,7 @@ def upcominglaunches():
     Upcoming = requests.get("https://api.spacexdata.com/v3/launches/upcoming").text
     json_Upcoming=json.loads(Upcoming)
 
-    upcoming_string = "Mission Name:" + str(json_Upcoming)[0]["mission_name"] + "\n" + "Rocket Model:" + str(json_Upcoming[0]["rocket"]["rocket_name"])
+    upcoming_string = "Mission Name: " + str(json_Upcoming[0]["mission_name"]) + "\n" + " Rocket Model: " + str(json_Upcoming[0]["rocket"]["rocket_name"])
     return upcoming_string
 
 app.run(threaded=True,port=int(os.environ.get('PORT', 5000)))
