@@ -1,0 +1,493 @@
+<!-- Used to make Icons work, not the latest version but...-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+<body>
+
+<script src="script.js"></script>
+
+<div class="tab">
+<button id = "onload" class="tablinks" onclick="homeshow(event,'#1')">
+<i class="fa fas fa-home"></i>
+Home</button>
+
+<button class="tablinks" onclick="show(event,'#2')">
+<i class="fa fas fa-paper-plane"></i>
+FAQs</button>
+
+<button class="tablinks" onclick="show(event,'#3')">
+<i class="fa fas fa-question-circle"></i>
+About</button>
+</div>
+
+
+<div id="#1" class="tabcontent">
+
+<div class = "clearfix">
+
+<div class="sidefocus">
+<br>
+<div class="dropdown" style="margin:auto;">
+
+  <button class="dropbtn">
+  <i class="iconhover fa fa-caret-right"></i>
+By Category<!--Cannot set new paragraph-->
+  </button>
+
+  <div class="dropdown-content">
+    <a id = "onload2" class="minitablinks" onclick = "category(event, 'latest')">
+    <i class="fa fas fa-history"></i>
+    Latest</a>
+    <a class="minitablinks" onclick = "category(event, '#s1')">
+    <i class="fa fas fa-rocket"></i>
+    Launches</a>
+    <a class="minitablinks" onclick = "category(event, '#s2')">
+      <i class="fa fas fa-book"></i>
+    Articles</a>
+    <a class="minitablinks" onclick = "category(event, '#s3')">
+    <i class="fa fas fa-pencil"></i>
+    Blog</a>
+  </div>
+
+</div>
+</div>
+
+<div id = "latest" class="mainfocus catcontent">
+
+<p style="text-align:center;font-size:30px;font-family:"Times New Roman";">LATEST</p>
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+LAUNCHED A MONKEY!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 30 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article1')">Continue</button>
+<br>
+<br>
+</div>
+
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+Aliens in Venus?
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 25 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article2')">Continue</button>
+<br>
+<br>
+</div>
+
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+We like teddies!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 20 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article3')">Continue</button>
+<br>
+<br>
+</div>
+
+</div>
+
+<div id = "#s1" class="mainfocus catcontent" style="display:none;">
+
+<p style="text-align:center;font-size:30px;font-family:"Times New Roman";">LAUNCHES</p>
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+LAUNCHED A MONKEY!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 30 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article1')">Continue</button>
+<br>
+<br>
+</div>
+
+</div>
+
+<div id="#s2" class="mainfocus catcontent" " style="display:none;">
+
+<p style="text-align:center;font-size:30px;font-family:"Times New Roman";">ARTICLES</p>
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+Aliens in Venus?
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 25 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article2')">Continue</button>
+<br>
+<br>
+</div>
+
+</div>
+
+<div id="#s3" class="mainfocus catcontent"" style="display:none;">
+
+<p style="text-align:center;font-size:30px;font-family:"Times New Roman";">BLOGS</p>
+<br>
+
+<div style="border:groove;text-align:center;">
+<p style="font-size:25px;">
+We like teddies!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 20 2020</p>
+</p>
+<button class="sidetab" onclick = "category(event, 'Article3')">Continue</button>
+<br>
+<br>
+</div>
+
+</div>
+
+</div> <!--Closing tab for first div / 1 with clearfix class-->
+
+</div>
+
+
+<div id="#2" class="tabcontent" style="width:70%;margin-left:15%;">
+
+<!--
+Thanks:
+https://stackoverflow.com/questions/9792849/how-to-insert-spaces-tabs-in-text-using-html-css
+-->
+
+<br>
+
+<button class="accordion fa fa-plus-square" onclick="toggle(this)"> Are their aliens in the Universe?</button>
+<div class="panel">
+<p>&ensp; So far we have not found life elsewhere, but the universe is vast spanning trillions of stars; their is a strong possibility that life may be evolved elsewhere! </p>
+</div>
+
+<button class="accordion fa fa-plus-square" onclick="toggle(this)"> What's Elon musk's IQ?</button>
+<div class="panel">
+<p>&ensp; 155 IQ, not that impressed? Let's compare yours then! </p>
+</div>
+
+<button class="accordion fa fa-plus-square" onclick="toggle(this)"> What happened before the big bang?</button>
+<div class="panel">
+<p>&ensp; The laws of General relativity breaksdown at at the quantum level, we have not even been able to extrapolate that back since we do not have working model/s that merges Quantum mechanics with General relativity.</p>
+</div>
+
+</div>
+
+
+<div id="#3" class="tabcontent" style="width:70%;margin-left:15%;text-align:center;">
+<br>
+<i style="text-align:center;font-size:45px;font-family:"Times New Roman";">SpaceX team</i>
+<br>
+<br>
+
+<img
+src="https://images.squarespace-cdn.com/content/v1/567094712399a343227fe58e/1576871241369-5Z0N8M7IL99D9H4UGB26/ke17ZwdGBToddI8pDm48kAuVD5hTkgD-w6loy_DbTn1Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIg4jK5Q3q_66nhZl9DY-OV3kSedSVxWB7D780SIQkam0/Wendy%27s+Social+Media?format=500w" style="border-radius:50%;max-width:400px;height:auto;">
+<p style="font-size:20px;">&ensp;<b>Dr.blackburne</b> has a Ph.D in mathematics and loves learning about the nature of the world, and the mystery of space/cosmology allures her. </p>
+
+<img
+src="https://www.webisjericho.com/wp-content/uploads/2020/09/wobbly-walrus-heyman-min.jpg" style="border-radius:50%;max-width:400px;height:auto;">
+<p style="font-size:20px;">&ensp; <b>Dr.wobble</b> is a Ph.D in theoretical physics and loves cosmology!</p>
+
+
+</div>
+
+<!--Articles/pages built inside here (Down)-->
+
+<!-- Article1-->
+<div id = "Article1" class="mainfocus catcontent" style="display:none;">
+
+<div style="text-align:center;">
+<p style="font-size:25px;">
+LAUNCHED A MONKEY!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 30 2020</p>
+</p>
+</div>
+
+<div style="font-size:21px;">
+<p>&ensp; Hello there ladies sirs and teddies! Ahem this example for Launches. Not lunch time but launches like rockets high up in the sky! yes you heard that right...</p>
+</div>
+
+</div>
+
+<!-- Article2-->
+<div id = "Article2" class="mainfocus catcontent" style="display:none;">
+
+<div style="text-align:center;">
+<p style="font-size:25px;">
+Aliens in Venus?
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 25 2020</p>
+</p>
+</div>
+
+<div style="font-size:21px;">
+<p>&ensp; Hello there ladies sirs and teddies! Ahem this example for Launches. Not lunch time but launches like rockets high up in the sky! yes you heard that right... Ahem ahem tada lalala hope this work how fast can you type my maam</p>
+</div>
+
+</div>
+
+<!-- Article3-->
+<div id = "Article3" class="mainfocus catcontent" style="display:none;">
+
+<div style="text-align:center;">
+<p style="font-size:25px;">
+We like teddies!
+<p style="font-size:16px;">By: SpaceX team &nbsp | &nbsp Date: January 20 2020</p>
+</p>
+</div>
+
+<div style="font-size:21px;">
+<p>&ensp; Hello there ladies sirs and teddies! Ahem this example for Launches. Not lunch time but launches like rockets high up in the sky! yes you heard that right... What is your word per minute or characters per minute hope the navigation is not too much bad bad tada </p>
+</div>
+
+</div>
+
+<!--Articles/pages built inside here (Up)-->
+
+</body>
+
+<style>
+
+/*Thanks : https://stackoverflow.com/questions/13355974/issue-with-border-around-the-button-css
+*/
+
+button {
+  outline : 0;
+}
+
+/*Maintabs format*/
+.tab {
+  text-align: center;
+}
+
+/* Style the maintab buttons*/
+.tab button {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Times New Roman";
+}
+
+/* When a maintab is active */
+.tab button.active {
+  background-color: #fafafa;
+  border-style:solid;
+  border-width: 3px;
+  border-color:black;
+}
+
+/* Style the content inside*/
+/* Thanks: https://stackoverflow.com/questions/1165497/can-i-prevent-text-in-a-div-block-from-overflowing
+*/
+.tabcontent {
+  display: none;
+}
+
+/*For Icons to show up:Weird!*/
+.fa {
+
+}
+
+/*Accordion button style*/
+.accordion {
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  text-align:left;
+}
+
+/*inside of a section*/
+.panel {
+  display: none;
+  background-color: white;
+  font-size:20px;
+  border:groove;
+  text-align:left;
+}
+
+.iconhover{
+  cursor:pointer;
+}
+
+/*Thanks:
+https://antonakoglou.com/2015/02/02/change-font-awesome-icon-content-hover/
+*/
+.dropdown:hover .fa-caret-right:before{
+  content:"\f0d7";
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+background-color: #ddd;
+cursor:pointer;
+}
+
+.dropdown-content a:hover {
+background-color: #ddd;
+border:solid 1px;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.mainfocus{
+float: left;
+width: 60%;
+margin-left:10%;
+}
+
+.sidefocus{
+float: right;
+width: 20%;
+}
+
+/*Clean formatting for floats to be nice, does not overcrowd new content outside*/
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style the sidetab buttons*/
+.sidetab {
+  cursor: pointer;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-family: "Times New Roman";
+}
+
+</style>
+
+<script>
+
+/*Icon toggle*/
+function toggle(x) {
+  x.classList.toggle("fa-minus-square");
+}
+
+/*Accordion toggle*/
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+/*hometab*/
+function homeshow (x, Name) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(Name).style.display = "block";
+  x.currentTarget.className += " active";
+
+  /*to make catcontent go away when switching to hometab*/
+  catcontent = document.getElementsByClassName("catcontent");
+  for (i = 0; i < catcontent.length; i++) {
+    catcontent[i].style.display = "none";
+  }
+
+}
+
+
+
+/*maintabs*/
+function show (x, Name) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(Name).style.display = "block";
+  x.currentTarget.className += " active";
+
+  /*to make catcontent go away when switching to maintabs: NOT hometab*/
+  catcontent = document.getElementsByClassName("catcontent");
+  for (i = 0; i < catcontent.length; i++) {
+    catcontent[i].style.display = "none";
+  }
+
+}
+
+/*For the Continue  buttons*/
+function category (x, Name) {
+  var i, catcontent, minitablinks;
+  catcontent = document.getElementsByClassName("catcontent");
+  for (i = 0; i < catcontent.length; i++) {
+    catcontent[i].style.display = "none";
+  }
+  minitablinks = document.getElementsByClassName("minitablinks");
+  for (i = 0; i < minitablinks.length; i++) {
+    minitablinks[i].className = minitablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(Name).style.display = "block";
+  x.currentTarget.className += " active";
+}
+
+</script>
+
+</html>
+
+<!--
+Thanks:
+https://fontawesome.com/v4.7.0/icons/
+w3schools
+-->
