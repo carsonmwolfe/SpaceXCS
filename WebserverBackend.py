@@ -96,7 +96,7 @@ def launchdetails():
     print (launchpadDict[json_Upcoming[0]["launchpad"]])
 
 
-    details_string = "Mission Name: " + str(json_Upcoming[0]["name"]) + "<br>" + "Launch Time: " + str(json_Upcoming[0]["date_local"]) + " Local Time" + "<br>" +"---------------Payload Detials----------------------" + "<br>" +"Payload: " + payloadDict[json_Upcoming[0]["payloads"][0]] + "<br>" + "Payload Mass: " + str(json_Payload[0]["mass_kg"]) + "kg" + "<br>" + "Payload Orbit: " + str(json_Payload[0]["orbit"]) + "<br>" + "----------------------------------------------------" + "<br>" + "LaunchPad: "  + launchpadDict[json_Upcoming[0]["launchpad"]] + "<br>" + "Launch Vechicle: " + RocketDict[json_Upcoming[0]["rocket"]] + "<br>" + "Launch Details: " + str(json_Upcoming[0]["details"])                         
+    details_string = "Mission Name: " + str(json_Upcoming[0]["name"]) + "<br>" + "Launch Time: " + str(json_Upcoming[0]["date_local"]) + " Local Time" + "<br>" +"---------------Payload Detials----------------------" + "<br>" +"Payload: " + payloadDict[json_Upcoming[0]["payloads"][0]] + "<br>" + "Payload Mass: " + str(json_Payload[0]["mass_kg"]) + "kg" + "<br>" + "Payload Orbit: " + str(json_Payload[0]["orbit"]) + "<br>" + "----------------------------------------------------" + "<br>" + "LaunchPad: "  + launchpadDict[json_Upcoming[0]["launchpad"]] + "<br>" + "Launch Vechicle: " + RocketDict[json_Upcoming[0]["rocket"]] + "<br>" + "Launch Details: " + str(json_Upcoming[0]["details"]) + "<br>" + "Mission Patch: " + str(json_Upcoming[0]["links"]["patch"]["large"])
 
 
     #details_string = "Mission Name: " + str(json_Latest["name"]) + "<br>" + "Launch Site: " + str(json_Latest["launchpad"]) + "<br>" + "Launch Vechicle: " + str(json_Latest["rocket"]) + "<br>" + " Payload: " + str(json_Latest["payloads"]) + "Payloads Name: "
@@ -117,4 +117,4 @@ def upcominglaunches():
 
     upcoming_string = "Mission Name: " + str(json_Upcoming[0]["mission_name"]) + "\n" + " Rocket Model: " + str(json_Upcoming[0]["rocket"]["rocket_name"])
     return upcoming_string
-app.run(threaded=True,port=int(os.environ.get('PORT', 5000)))
+app.run(host="0.0.0.0"threaded=True,port=int(os.environ.get('PORT', 5000)))
