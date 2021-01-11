@@ -63,11 +63,7 @@ def launchdetails():
 
     launchpadDict = {}
     payloadDict = {}
-
-    FALCON1 = "5e9d0d95eda69955f709d1eb"
-    FALCON9 = "5e9d0d95eda69973a809d1ec"
-    FALCONHEAVY = "5e9d0d95eda69974db09d1ed"
-    STARSHIP = "5e9d0d96eda699382d09d1ee"
+    RocketDict = {}
 
     Latest = requests.get("https://api.spacexdata.com/v4/launches/latest").text
     json_Latest=json.loads(Latest)
@@ -75,23 +71,15 @@ def launchdetails():
     Upcoming = requests.get("https://api.spacexdata.com/v4/launches/upcoming").text
     json_Upcoming=json.loads(Upcoming)
 
-
-    #This one you should work on Kira
-    #Just copy and paste the link: https://api.spacexdata.com/v4/rockets
     Rockets = requests.get("https://api.spacexdata.com/v4/rockets").text
     json_Rockets=json.loads(Rockets)
 
     launchpads = requests.get("https://api.spacexdata.com/v4/launchpads").text
     json_launchpads=json.loads(launchpads)
 
-    Payload = requests.get("https://api.spacexdata.com/v4/rockets").text
+    Payload = requests.get("https://api.spacexdata.com/v4/payloads").text
     json_Payload = json.loads(Payload)
 
-    #Copy and paste 1 of the for statements below and replace payload with a name of your choosing like rockets or something
-    #then replace json_payload with json_Rockets
-    #then find what name of the hash value is assigned to in the link you copied and pasted above.
-    # then set that equal to what it is described as in the https://api.spacexdata.com/v4/launches/latest
-    #finally print it just like the other ones below!
 
     for launchpad in json_launchpads:
         launchpadDict[launchpad["id"]] = launchpad["full_name"]
@@ -99,10 +87,16 @@ def launchdetails():
     for payload in json_Payload:
         payloadDict[payload["id"]] = payload["name"]
 
+    for rockets in json_Rockets:
+        RocketDict[rockets["id"]] = rockets["name"]
+
+
     print (payloadDict[json_Upcoming[0]["payloads"][0]])
+    print (RocketDict[json_Upcoming[0]["rocket"]])
     print (launchpadDict[json_Upcoming[0]["launchpad"]])
 
-    details_string = "Payload: " + payloadDict[json_Upcoming[0]["payloads"][0]] + "<br>" + "LaunchPad: "  + launchpadDict[json_Upcoming[0]["launchpad"]]
+
+    details_string = "Mission Name: " + str(json_Upcoming[0]["name"]) + "<br>" + "Launch Time: " + str(json_Upcoming[0]["date_local"]) + " Local Time" + "<br>" +"---------------Payload Detials----------------------" + "<br>" +"Payload: " + payloadDict[json_Upcoming[0]["payloads"][0]] + "<br>" + "Payload Mass: " + str(json_Payload[0]["mass_kg"]) + "kg" + "<br>" + "Payload Orbit: " + str(json_Payload[0]["orbit"]) + "<br>" + "----------------------------------------------------" + "<br>" + "LaunchPad: "  + launchpadDict[json_Upcoming[0]["launchpad"]] + "<br>" + "Launch Vechicle: " + RocketDict[json_Upcoming[0]["rocket"]] + "<br>" + "Launch Details: " + str(json_Upcoming[0]["details"]) + "<br>" + "Mission Patch: " + str(json_Upcoming[0]["links"]["patch"]["large"])
 
 
     #details_string = "Mission Name: " + str(json_Latest["name"]) + "<br>" + "Launch Site: " + str(json_Latest["launchpad"]) + "<br>" + "Launch Vechicle: " + str(json_Latest["rocket"]) + "<br>" + " Payload: " + str(json_Latest["payloads"]) + "Payloads Name: "
@@ -123,4 +117,4 @@ def upcominglaunches():
 
     upcoming_string = "Mission Name: " + str(json_Upcoming[0]["mission_name"]) + "\n" + " Rocket Model: " + str(json_Upcoming[0]["rocket"]["rocket_name"])
     return upcoming_string
-app.run(threaded=True,port=int(os.environ.get('PORT', 5000)))
+app.run(host="0.0.0.0",threaded=True,port=int(os.environ.get('PORT', 5000)))
